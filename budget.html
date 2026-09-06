@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html id="html" lang="ar" dir="rtl">
+
+<head>
+
+    <script src="js/auth-guard.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الميزانية | إدارة المصروفات</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/budget.css">
+
+</head>
+
+<body>
+
+
+<!-- ======================================
+     Header
+====================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <img
+            src="assets/images/logo.png"
+            alt="Expense Manager Logo"
+        >
+
+        <div class="logo-text">
+
+            <h1
+                id="app-name"
+                data-lang="app-name"
+            >
+                إدارة المصروفات
+            </h1>
+
+            <span>
+                Expense Manager
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button
+            id="language-btn" aria-label="Change Language/تغيير اللغة"
+            class="header-btn"
+            title="Change Language"
+        >
+            🌐 EN
+        </button>
+
+        <button
+            id="theme-btn" aria-label="Toggle Dark Mode/تبديل الوضع الليلي"
+            class="header-btn"
+            title="Dark Mode"
+        >
+            🌙
+        </button>
+
+        <button
+            id="menu-btn" aria-label="Open Menu/فتح القائمة"
+            class="menu-btn"
+            title="Menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================
+     Sidebar
+====================================== -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+    <div class="sidebar-header">
+
+        <h2
+            id="sidebar-title"
+            data-lang="sidebar-title"
+        >
+            📊 إدارة المصروفات
+        </h2>
+
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+        <a href="dashboard.html">
+
+            <span>🏠</span>
+
+            <span data-lang="dashboard">
+                لوحة التحكم
+            </span>
+
+        </a>
+
+
+        <a href="transactions.html">
+
+            <span>💰</span>
+
+            <span data-lang="transactions">
+                المعاملات
+            </span>
+
+        </a>
+
+
+        <a href="reports.html">
+
+            <span>📈</span>
+
+            <span data-lang="reports">
+                التقارير
+            </span>
+
+        </a>
+
+
+        <a href="categories.html">
+
+            <span>🏷️</span>
+
+            <span data-lang="categories">
+                التصنيفات
+            </span>
+
+        </a>
+
+
+        <a
+            href="budget.html"
+            class="active"
+        >
+
+            <span>💼</span>
+
+            <span data-lang="budget">
+                الميزانية
+            </span>
+
+        </a>
+
+
+        <a href="settings.html">
+
+            <span>⚙️</span>
+
+            <span data-lang="settings">
+                الإعدادات
+            </span>
+
+        </a>
+
+    
+    <a href="#" id="logout-link" class="logout-link">
+        <span>🚪</span>
+        <span id="nav-logout" data-lang="logout">تسجيل الخروج</span>
+    </a>
+
+</nav>
+
+</aside>
+
+
+<!-- ======================================
+     Overlay
+====================================== -->
+
+<div
+    class="overlay"
+    id="overlay"
+></div>
+
+
+<!-- ======================================
+     Main Content
+====================================== -->
+
+<main class="main-content">
+
+
+    <!-- Page Header -->
+
+    <section class="budget-page">
+
+        <h2 data-lang="budget-page-title">
+            💼 إدارة الميزانية
+        </h2>
+
+        <p data-lang="budget-page-description">
+            حدد ميزانيتك الشهرية وتابع مقدار الإنفاق والمتبقي.
+        </p>
+
+    </section>
+
+
+    <!-- Budget Form -->
+
+    <section class="budget-form">
+
+        <form id="budget-form">
+
+            <div class="form-group">
+
+                <label
+                    for="budget-month"
+                    data-lang="budget-month"
+                >
+                    شهر الميزانية
+                </label>
+
+                <input
+                    type="month"
+                    id="budget-month"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label
+                    for="budget-amount"
+                    data-lang="monthly-budget"
+                >
+                    الميزانية الشهرية
+                </label>
+
+                <input
+                    type="number"
+                    id="budget-amount"
+                    data-lang-placeholder="budget-placeholder"
+                    placeholder="أدخل الميزانية"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="save-btn"
+                data-lang="save-budget"
+            >
+                حفظ الميزانية
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Per-Category Budgets -->
+
+    <section class="budget-form category-budgets-section">
+
+        <h3 data-lang="category-budget">
+            ميزانية التصنيف
+        </h3>
+
+        <div id="category-budgets-list">
+
+            <!-- JavaScript -->
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Budget Summary -->
+
+    <section class="budget-summary">
+
+
+        <!-- Total Budget -->
+
+        <div class="budget-card">
+
+            <h3 data-lang="budget">
+                الميزانية
+            </h3>
+
+            <h1 id="total-budget">
+                0.00
+            </h1>
+
+        </div>
+
+
+        <!-- Spent -->
+
+        <div class="budget-card">
+
+            <h3 data-lang="spent">
+                المصروفات
+            </h3>
+
+            <h1 id="spent-budget">
+                0.00
+            </h1>
+
+        </div>
+
+
+        <!-- Remaining -->
+
+        <div class="budget-card">
+
+            <h3 data-lang="remaining">
+                المتبقي
+            </h3>
+
+            <h1 id="remaining-budget">
+                0.00
+            </h1>
+
+        </div>
+
+    </section>
+
+
+    <!-- Budget Progress -->
+
+    <section class="budget-progress">
+
+        <h3 data-lang="budget-usage">
+            نسبة استهلاك الميزانية
+        </h3>
+
+
+        <div class="progress-bar">
+
+            <div
+                id="progress-fill"
+                class="progress-fill"
+            ></div>
+
+        </div>
+
+
+        <p id="progress-text">
+            0%
+        </p>
+
+    </section>
+
+
+</main>
+
+
+<!-- ======================================
+     JavaScript
+====================================== -->
+
+<script src="js/storage.js"></script>
+
+<script src="js/language.js"></script>
+    <script src="js/helpers.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="js/budget.js"></script>
+
+
+</body>
+
+</html>

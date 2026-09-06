@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html id="html" lang="ar" dir="rtl">
+
+<head>
+
+    <script src="js/auth-guard.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>المعاملات - إدارة المصروفات</title>
+
+    <!-- ==============================
+         CSS
+    =============================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/transaction.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================
+         Header
+    ======================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Expense Manager Logo"
+            >
+
+            <div class="logo-text">
+
+                <h1
+                    id="app-name"
+                    data-lang="app-name"
+                >
+                    إدارة المصروفات
+                </h1>
+
+                <span>
+                    Expense Manager
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Header Actions -->
+
+        <div class="header-actions">
+
+    <button id="language-btn" aria-label="Change Language/تغيير اللغة" class="header-btn" title="Change Language">
+        🌐 EN
+    </button>
+
+    <button id="theme-btn" aria-label="Toggle Dark Mode/تبديل الوضع الليلي" class="header-btn" title="Dark Mode">
+        🌙
+    </button>
+
+    <button
+        id="menu-btn" aria-label="Open Menu/فتح القائمة"
+        class="menu-btn"
+        title="Menu"
+    >
+        ☰
+    </button>
+
+</div>
+    </header>
+
+
+
+    <!-- ======================================
+         Sidebar
+    ======================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <h2
+                id="sidebar-title"
+                data-lang="sidebar-title"
+            >
+                📊 إدارة المصروفات
+            </h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+
+            <!-- Dashboard -->
+
+            <a href="dashboard.html">
+
+                <span>🏠</span>
+
+                <span
+                    id="nav-dashboard"
+                    data-lang="dashboard"
+                >
+                    لوحة التحكم
+                </span>
+
+            </a>
+
+
+            <!-- Transactions -->
+
+            <a
+                href="transactions.html"
+                class="active"
+            >
+
+                <span>💰</span>
+
+                <span
+                    id="nav-transactions"
+                    data-lang="transactions"
+                >
+                    المعاملات
+                </span>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a href="reports.html">
+
+                <span>📈</span>
+
+                <span
+                    id="nav-reports"
+                    data-lang="reports"
+                >
+                    التقارير
+                </span>
+
+            </a>
+
+
+            <!-- Categories -->
+
+            <a href="categories.html">
+
+                <span>🏷️</span>
+
+                <span
+                    id="nav-categories"
+                    data-lang="categories"
+                >
+                    التصنيفات
+                </span>
+
+            </a>
+
+
+            <!-- Budget -->
+
+            <a href="budget.html">
+
+                <span>💼</span>
+
+                <span
+                    id="nav-budget"
+                    data-lang="budget"
+                >
+                    الميزانية
+                </span>
+
+            </a>
+
+
+            <!-- Settings -->
+
+            <a href="settings.html">
+
+                <span>⚙️</span>
+
+                <span
+                    id="nav-settings"
+                    data-lang="settings"
+                >
+                    الإعدادات
+                </span>
+
+            </a>
+
+        
+    <a href="#" id="logout-link" class="logout-link">
+        <span>🚪</span>
+        <span id="nav-logout" data-lang="logout">تسجيل الخروج</span>
+    </a>
+
+</nav>
+
+    </aside>
+
+
+
+    <!-- ======================================
+         Overlay
+    ======================================= -->
+
+    <div
+        class="overlay"
+        id="overlay"
+    ></div>
+
+
+
+    <!-- ======================================
+         Main Content
+    ======================================= -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================
+             Page Header
+        =================================== -->
+
+   
+
+        <!-- ==================================
+             Transaction Form
+        =================================== -->
+
+     <form id="transaction-form" class="transaction-form">
+
+    <h2
+        class="form-title"
+        data-lang="add-transaction"
+    >
+        إضافة معاملة جديدة
+    </h2>
+
+            <!-- Title -->
+
+            <label
+    for="title"
+    data-lang="transaction-description"
+>
+    الوصف
+</label>
+
+<input
+    type="text"
+    id="title"
+    data-lang-placeholder="transaction-description-placeholder"
+    placeholder="مثال: شراء طعام"
+    required
+>
+
+
+            <!-- Amount -->
+
+            <div class="form-group">
+
+               <label
+    for="amount"
+    data-lang="transaction-amount"
+>
+    المبلغ
+</label>
+
+<input
+    type="number"
+    id="amount"
+    data-lang-placeholder="transaction-amount-placeholder"
+    placeholder="0.00"
+    min="0.01"
+    step="0.01"
+    required
+>
+            </div>
+
+
+            <!-- Type -->
+
+            <div class="form-group">
+
+               <label
+    for="type"
+    data-lang="transaction-type"
+>
+    نوع العملية
+</label>
+
+<select id="type" required>
+
+    <option
+        value="expense"
+        data-lang="expense"
+    >
+        💸 مصروف
+    </option>
+
+    <option
+        value="income"
+        data-lang="income"
+    >
+        💰 دخل
+    </option>
+
+</select>
+
+                
+
+            </div>
+
+
+            <!-- Category -->
+
+            <div class="form-group">
+
+             <label
+    for="category"
+    data-lang="transaction-category"
+>
+    التصنيف
+</label>
+
+<select id="category" required>
+
+    <option
+        value=""
+        data-lang="select-category"
+    >
+        اختر التصنيف
+    </option>
+
+</select>
+            </div>
+
+
+            <!-- Date -->
+
+        <div class="form-group">
+
+    <label
+        for="date"
+        data-lang="transaction-date"
+    >
+        التاريخ
+    </label>
+
+    <input
+        type="date"
+        id="date"
+        required
+    >
+
+</div>
+
+
+            <!-- Recurring -->
+
+            <div class="form-group">
+
+                <label
+                    for="recurring"
+                    data-lang="recurring-transaction"
+                >
+                    معاملة متكررة
+                </label>
+
+                <select id="recurring">
+
+                    <option value="" data-lang="recurring-none">
+                        بدون تكرار
+                    </option>
+
+                    <option value="monthly" data-lang="recurring-monthly">
+                        شهريًا
+                    </option>
+
+                    <option value="weekly" data-lang="recurring-weekly">
+                        أسبوعيًا
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Save -->
+
+          <button
+    type="submit"
+    class="save-btn"
+    data-lang="save-transaction"
+>
+    حفظ العملية
+</button>
+        </form>
+
+
+
+        <!-- ==================================
+             Transactions List
+        =================================== -->
+
+        <section class="transactions-list">
+
+         <h2 data-lang="transactions-list">
+    قائمة المعاملات
+</h2>
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    data-lang-placeholder="search-placeholder"
+                    placeholder="🔍 ابحث في المعاملات..."
+                >
+
+                <select id="filter-type">
+
+                    <option value="" data-lang="filter-all-types">
+                        كل الأنواع
+                    </option>
+
+                    <option value="income" data-lang="income">
+                        💰 دخل
+                    </option>
+
+                    <option value="expense" data-lang="expense">
+                        💸 مصروف
+                    </option>
+
+                </select>
+
+                <select id="filter-category">
+
+                    <option value="" data-lang="filter-all-categories">
+                        كل التصنيفات
+                    </option>
+
+                </select>
+
+                <select id="sort-transactions">
+
+                    <option value="date-desc" data-lang="sort-newest">
+                        الأحدث أولاً
+                    </option>
+
+                    <option value="date-asc" data-lang="sort-oldest">
+                        الأقدم أولاً
+                    </option>
+
+                    <option value="amount-desc" data-lang="sort-amount-high">
+                        الأعلى مبلغًا
+                    </option>
+
+                    <option value="amount-asc" data-lang="sort-amount-low">
+                        الأقل مبلغًا
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table id="transactions-table">
+
+                    <thead>
+
+                        <tr>
+
+                        <th data-lang="description">الوصف</th>
+<th data-lang="amount">المبلغ</th>
+<th data-lang="transaction-type">النوع</th>
+<th data-lang="category">التصنيف</th>
+<th data-lang="date">التاريخ</th>
+<th data-lang="actions">الإجراءات</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="transactions-body">
+
+                        <!-- JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ======================================
+         JavaScript
+    ======================================= -->
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/language.js"></script>
+    <script src="js/helpers.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/transactions.js"></script>
+
+
+</body>
+
+</html>

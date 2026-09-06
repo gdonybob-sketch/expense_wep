@@ -1,0 +1,236 @@
+
+
+/* ===========================
+   Page Header
+=========================== */
+
+.page-header{
+    margin-bottom:30px;
+}
+
+.page-header h1{
+    font-size:32px;
+    color:#2e7d32;
+    margin-bottom:10px;
+}
+
+.page-header p{
+    font-size:16px;
+    color:#666;
+}
+
+/* ===========================
+   Transaction Form
+=========================== */
+
+.transaction-form{
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+
+    margin-bottom:35px;
+}
+
+.form-title{
+    grid-column:1/-1;
+
+    font-size:24px;
+    color:#2e7d32;
+
+    border-bottom:1px solid #eee;
+
+    padding-bottom:15px;
+    margin-bottom:10px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    font-size:15px;
+    font-weight:bold;
+    color:#333;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#2e7d32;
+}
+
+.save-btn{
+    grid-column:1/-1;
+
+    padding:15px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#2e7d32;
+    color:#ffffff;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.save-btn:hover{
+    background:#1b5e20;
+}
+
+/* ===========================
+   Transactions Table
+=========================== */
+
+.transactions-list{
+    margin-top:30px;
+    background:#ffffff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.transactions-list h2{
+    margin-bottom:20px;
+    color:#333;
+}
+
+#transactions-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+#transactions-table th,
+#transactions-table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #eeeeee;
+}
+
+#transactions-table th{
+    background:#f5f7fb;
+    color:#333;
+    font-weight:bold;
+}
+
+#transactions-table tbody tr:hover{
+    background:#f8f9fa;
+}
+
+/* ===========================
+   Action Buttons
+=========================== */
+
+.edit-btn,
+.delete-btn{
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    margin:0 3px;
+
+    transition:.3s;
+}
+
+.edit-btn{
+    background:#2196f3;
+    color:#ffffff;
+}
+
+.edit-btn:hover{
+    background:#1976d2;
+}
+
+.delete-btn{
+    background:#f44336;
+    color:#ffffff;
+}
+
+.delete-btn:hover{
+    background:#d32f2f;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:768px){
+
+    .transaction-form{
+        grid-template-columns:1fr;
+    }
+
+    .transactions-list{
+        overflow-x:auto;
+    }
+
+    #transactions-table{
+        min-width:700px;
+    }
+
+}
+
+/* ===========================
+   Transaction Type
+=========================== */
+
+.income{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:#d1fae5;
+
+    color:#065f46;
+
+    font-weight:bold;
+
+}
+
+.expense{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    font-weight:bold;
+
+}

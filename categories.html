@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html id="html" lang="ar" dir="rtl">
+
+<head>
+
+    <script src="js/auth-guard.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title data-lang="categories-page-title">
+        التصنيفات | إدارة المصروفات
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/categories.css">
+
+</head>
+
+<body>
+
+    <!-- ======================================
+         Header
+    ======================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Expense Manager Logo"
+            >
+
+            <div class="logo-text">
+
+                <h1
+                    id="app-name"
+                    data-lang="app-name"
+                >
+                    إدارة المصروفات
+                </h1>
+
+                <span>
+                    Expense Manager
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button
+                id="language-btn" aria-label="Change Language/تغيير اللغة"
+                class="header-btn"
+                title="Change Language"
+            >
+                🌐 EN
+            </button>
+
+            <button
+                id="theme-btn" aria-label="Toggle Dark Mode/تبديل الوضع الليلي"
+                class="header-btn"
+                title="Dark Mode"
+            >
+                🌙
+            </button>
+
+            <button
+                id="menu-btn" aria-label="Open Menu/فتح القائمة"
+                class="menu-btn"
+                title="Menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================
+         Sidebar
+    ======================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <h2
+                data-lang="sidebar-title"
+            >
+                📊 إدارة المصروفات
+            </h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <!-- Dashboard -->
+
+            <a href="dashboard.html">
+
+                <span>🏠</span>
+
+                <span data-lang="dashboard">
+                    لوحة التحكم
+                </span>
+
+            </a>
+
+
+            <!-- Transactions -->
+
+            <a href="transactions.html">
+
+                <span>💰</span>
+
+                <span data-lang="transactions">
+                    المعاملات
+                </span>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a href="reports.html">
+
+                <span>📈</span>
+
+                <span data-lang="reports">
+                    التقارير
+                </span>
+
+            </a>
+
+
+            <!-- Categories -->
+
+            <a
+                href="categories.html"
+                class="active"
+            >
+
+                <span>🏷️</span>
+
+                <span data-lang="categories">
+                    التصنيفات
+                </span>
+
+            </a>
+
+
+            <!-- Budget -->
+
+            <a href="budget.html">
+
+                <span>💼</span>
+
+                <span data-lang="budget">
+                    الميزانية
+                </span>
+
+            </a>
+
+
+            <!-- Settings -->
+
+            <a href="settings.html">
+
+                <span>⚙️</span>
+
+                <span data-lang="settings">
+                    الإعدادات
+                </span>
+
+            </a>
+
+        
+    <a href="#" id="logout-link" class="logout-link">
+        <span>🚪</span>
+        <span id="nav-logout" data-lang="logout">تسجيل الخروج</span>
+    </a>
+
+</nav>
+
+    </aside>
+
+
+    <!-- Overlay -->
+
+    <div
+        class="overlay"
+        id="overlay"
+    ></div>
+
+
+    <!-- ======================================
+         Main Content
+    ======================================= -->
+
+    <main class="main-content">
+
+        <section class="categories">
+
+
+            <!-- Page Header -->
+
+            <div class="page-header">
+
+                <h2 data-lang="categories-page-title">
+                    🏷️ إدارة التصنيفات
+                </h2>
+
+                <p data-lang="categories-page-description">
+                    يمكنك إضافة أو تعديل أو حذف تصنيفات الدخل والمصروفات.
+                </p>
+
+            </div>
+
+
+            <!-- ==================================
+                 Category Form
+            =================================== -->
+
+            <form
+                id="category-form"
+                class="category-form"
+            >
+
+                <!-- Category Name -->
+
+                <div class="form-group">
+
+                    <label
+                        for="category-name"
+                        data-lang="category-name"
+                    >
+                        اسم التصنيف
+                    </label>
+
+                    <input
+                        type="text"
+                        id="category-name"
+                        data-lang-placeholder="category-name-placeholder"
+                        placeholder="مثال: طعام"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Category Icon -->
+
+                <div class="form-group">
+
+                    <label
+                        for="category-icon"
+                        data-lang="category-icon"
+                    >
+                        الأيقونة
+                    </label>
+
+                    <input
+                        type="text"
+                        id="category-icon"
+                        data-lang-placeholder="category-icon-placeholder"
+                        placeholder="🍔"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Category Type -->
+
+                <div class="form-group">
+
+                    <label
+                        for="category-type"
+                        data-lang="category-type"
+                    >
+                        نوع التصنيف
+                    </label>
+
+                    <select
+                        id="category-type"
+                        required
+                    >
+
+                        <option
+                            value="expense"
+                            data-lang="expense"
+                        >
+                            💸 مصروف
+                        </option>
+
+                        <option
+                            value="income"
+                            data-lang="income"
+                        >
+                            💰 دخل
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Save Button -->
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                    data-lang="save-category"
+                >
+                    حفظ التصنيف
+                </button>
+
+            </form>
+
+
+            <!-- ==================================
+                 Categories Table
+            =================================== -->
+
+            <section class="categories-table">
+
+                <h3 data-lang="all-categories">
+                    جميع التصنيفات
+                </h3>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th data-lang="number">
+                                    #
+                                </th>
+
+                                <th data-lang="category-icon">
+                                    الأيقونة
+                                </th>
+
+                                <th data-lang="category-name">
+                                    اسم التصنيف
+                                </th>
+
+                                <th data-lang="category-type">
+                                    النوع
+                                </th>
+
+                                <th data-lang="actions">
+                                    الإجراءات
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="categories-body">
+
+                            <!-- categories.js -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         JavaScript
+    ======================================= -->
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/language.js"></script>
+    <script src="js/helpers.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/categories.js"></script>
+
+</body>
+
+</html>

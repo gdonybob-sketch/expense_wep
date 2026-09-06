@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html id="html" lang="ar" dir="rtl">
+
+<head>
+
+    <script src="js/auth-guard.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الإعدادات | إدارة المصروفات</title>
+
+    <!-- ==============================
+         CSS
+    =============================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/settings.css">
+
+</head>
+
+<body>
+
+
+<!-- ======================================
+     Header
+====================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <img
+            src="assets/images/logo.png"
+            alt="Expense Manager Logo"
+        >
+
+        <div class="logo-text">
+
+            <h1
+                id="app-name"
+                data-lang="app-name"
+            >
+                إدارة المصروفات
+            </h1>
+
+            <span>
+                Expense Manager
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button
+            id="language-btn" aria-label="Change Language/تغيير اللغة"
+            class="header-btn"
+            title="Change Language"
+        >
+            🌐 EN
+        </button>
+
+        <button
+            id="theme-btn" aria-label="Toggle Dark Mode/تبديل الوضع الليلي"
+            class="header-btn"
+            title="Dark Mode"
+        >
+            🌙
+        </button>
+
+        <button
+            id="menu-btn" aria-label="Open Menu/فتح القائمة"
+            class="menu-btn"
+            title="Menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================
+     Sidebar
+====================================== -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+    <div class="sidebar-header">
+
+        <h2
+            id="sidebar-title"
+            data-lang="sidebar-title"
+        >
+            📊 إدارة المصروفات
+        </h2>
+
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+        <a href="dashboard.html">
+
+            <span>🏠</span>
+
+            <span data-lang="dashboard">
+                لوحة التحكم
+            </span>
+
+        </a>
+
+
+        <a href="transactions.html">
+
+            <span>💰</span>
+
+            <span data-lang="transactions">
+                المعاملات
+            </span>
+
+        </a>
+
+
+        <a href="reports.html">
+
+            <span>📈</span>
+
+            <span data-lang="reports">
+                التقارير
+            </span>
+
+        </a>
+
+
+        <a href="categories.html">
+
+            <span>🏷️</span>
+
+            <span data-lang="categories">
+                التصنيفات
+            </span>
+
+        </a>
+
+
+        <a href="budget.html">
+
+            <span>💼</span>
+
+            <span data-lang="budget">
+                الميزانية
+            </span>
+
+        </a>
+
+
+        <a
+            href="settings.html"
+            class="active"
+        >
+
+            <span>⚙️</span>
+
+            <span data-lang="settings">
+                الإعدادات
+            </span>
+
+        </a>
+
+    
+    <a href="#" id="logout-link" class="logout-link">
+        <span>🚪</span>
+        <span id="nav-logout" data-lang="logout">تسجيل الخروج</span>
+    </a>
+
+</nav>
+
+</aside>
+
+
+<!-- ======================================
+     Overlay
+====================================== -->
+
+<div
+    class="overlay"
+    id="overlay"
+></div>
+
+
+<!-- ======================================
+     Main Content
+====================================== -->
+
+<main class="main-content">
+
+
+    <section class="settings-page">
+
+
+        <!-- Page Header -->
+
+        <div class="page-header">
+
+            <h2 data-lang="settings-page-title">
+                ⚙️ الإعدادات
+            </h2>
+
+            <p data-lang="settings-page-description">
+                إدارة إعدادات التطبيق والتفضيلات الخاصة بك.
+            </p>
+
+        </div>
+
+        <div class="local-data-notice" id="local-data-notice" hidden>
+            <span data-lang="local-data-notice">🔒 بياناتك محفوظة محليًا في هذا المتصفح فقط ولا تُرسل لأي خادم. امسح الكاش بحذر، ويُفضّل تصدير نسخة احتياطية بشكل دوري من الإعدادات.</span>
+            <button class="notice-close" type="button" aria-label="إغلاق التنبيه">✕</button>
+        </div>
+
+
+        <!-- ==================================
+             Appearance
+        =================================== -->
+
+        <section class="settings-card">
+
+            <h3 data-lang="appearance-settings">
+                🎨 المظهر
+            </h3>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h4 data-lang="dark-mode">
+                        الوضع الليلي
+                    </h4>
+
+                    <p data-lang="dark-mode-description">
+                        تفعيل أو إيقاف الوضع الليلي.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="settings-theme-btn"
+                    class="settings-btn"
+                    type="button"
+                >
+                    🌙
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             Language
+        =================================== -->
+
+        <section class="settings-card">
+
+            <h3 data-lang="language-settings">
+                🌐 اللغة
+            </h3>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h4 data-lang="application-language">
+                        لغة التطبيق
+                    </h4>
+
+                    <p data-lang="language-description">
+                        اختر اللغة التي تريد استخدامها في التطبيق.
+                    </p>
+
+                </div>
+
+
+                <select id="settings-language">
+
+                    <option
+                        value="ar"
+                        data-lang="arabic"
+                    >
+                        العربية
+                    </option>
+
+                    <option
+                        value="en"
+                        data-lang="english"
+                    >
+                        English
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             Data
+        =================================== -->
+
+        <section class="settings-card">
+
+            <h3 data-lang="data-settings">
+                💾 البيانات
+            </h3>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h4 data-lang="clear-data">
+                        حذف جميع البيانات
+                    </h4>
+
+                    <p data-lang="clear-data-description">
+                        حذف جميع المعاملات والتصنيفات والميزانية المحفوظة.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="clear-data-btn"
+                    class="danger-btn"
+                    type="button"
+                >
+                    🗑️
+                    <span data-lang="clear-data-button">
+                        حذف البيانات
+                    </span>
+                </button>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h4 data-lang="export-data">
+                        ⬇️ تصدير البيانات
+                    </h4>
+
+                    <p data-lang="export-data-description">
+                        احفظ نسخة من كل معاملاتك وتصنيفاتك كملف JSON على جهازك.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="export-data-btn"
+                    class="settings-btn"
+                    type="button"
+                >
+                    ⬇️
+                </button>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h4 data-lang="import-data">
+                        ⬆️ استيراد البيانات
+                    </h4>
+
+                    <p data-lang="import-data-description">
+                        استرجع نسخة محفوظة سابقًا (ملف JSON) لاستبدال البيانات الحالية.
+                    </p>
+
+                </div>
+
+
+                <label class="settings-btn file-btn" for="import-data-input">
+                    ⬆️
+                </label>
+
+                <input
+                    type="file"
+                    id="import-data-input"
+                    accept="application/json"
+                    hidden
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             About
+        =================================== -->
+
+        <section class="settings-card">
+
+            <h3 data-lang="about-app">
+                ℹ️ حول التطبيق
+            </h3>
+
+
+            <div class="about-content">
+
+                <p>
+                    <strong data-lang="app-name">
+                        إدارة المصروفات
+                    </strong>
+                </p>
+
+                <p data-lang="app-version">
+                    الإصدار 1.0.0
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </section>
+
+</main>
+
+
+<!-- ======================================
+     JavaScript
+====================================== -->
+
+<script src="js/storage.js"></script>
+
+<script src="js/language.js"></script>
+    <script src="js/helpers.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="js/settings.js"></script>
+
+
+</body>
+
+</html>

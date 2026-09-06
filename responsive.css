@@ -1,0 +1,62 @@
+/* ===================================
+   Responsive - Mobile
+=================================== */
+
+@media (max-width:768px){
+
+    .header{
+        padding:0 15px;
+        height:65px;
+    }
+
+    .logo img{
+        width:40px;
+        height:40px;
+    }
+
+    .logo-text h1{
+        font-size:18px;
+    }
+
+    .logo-text span{
+        font-size:11px;
+    }
+
+    /* إخفاء أزرار اللغة والثيم في الهاتف */
+    #language-btn,
+    #theme-btn{
+        display:none;
+    }
+
+    /* إظهار زر القائمة */
+    .menu-btn{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+/* ===========================
+   Sidebar - Mobile
+=========================== */
+
+@media (max-width:768px){
+
+    .sidebar{
+        right:-280px;
+        transition:.3s;
+        z-index:999;
+    }
+
+    .sidebar.active{
+        right:0;
+    }
+
+}
+}
+@media (max-width:768px){
+
+    .main-content{
+        margin-right:0;
+        padding:15px;
+    }
+
+}

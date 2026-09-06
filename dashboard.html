@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html id="html" lang="ar" dir="rtl">
+
+<head>
+    <script src="js/auth-guard.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>لوحة التحكم - إدارة المصروفات</title>
+
+    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/helpers.css">
+</head>
+
+<body>
+
+  <header class="header">
+
+    <div class="logo">
+
+        <img src="assets/images/logo.png" alt="Expense Manager Logo">
+
+        <div class="logo-text">
+            <h1 id="app-name" data-lang="app-name">
+    إدارة المصروفات
+</h1>
+            <span>Expense Manager</span>
+        </div>
+
+    </div>
+<div class="header-actions">
+
+    <button id="language-btn" aria-label="Change Language/تغيير اللغة" class="header-btn">
+        🌐 EN
+    </button>
+
+    <button id="theme-btn" aria-label="Toggle Dark Mode/تبديل الوضع الليلي" class="header-btn">
+        🌙
+    </button>
+
+    <button id="menu-btn" aria-label="Open Menu/فتح القائمة" class="menu-btn">
+        ☰
+    </button>
+
+</div>
+</header>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2 id="sidebar-title" data-lang="sidebar-title">
+    📊 إدارة المصروفات
+</h2>
+    </div>
+
+
+   <nav class="sidebar-menu">
+
+    <a href="dashboard.html" class="active">
+        <span>🏠</span>
+        <span id="nav-dashboard" data-lang="dashboard">لوحة التحكم</span>
+
+    </a>
+
+    <a href="transactions.html">
+        <span>💰</span>
+        <span id="nav-transactions" data-lang="transactions">المعاملات</span>
+
+    </a>
+
+    <a href="reports.html">
+        <span>📈</span>
+        <span id="nav-reports" data-lang="reports">التقارير</span>
+
+    </a>
+
+    <a href="categories.html">
+        <span>🏷️</span>
+        
+<span id="nav-categories" data-lang="categories">التصنيفات</span>
+
+    </a>
+
+    <a href="budget.html">
+        <span>💼</span>
+        <span id="nav-budget" data-lang="budget">الميزانية</span>
+
+    </a>
+
+    <a href="settings.html">
+        <span>⚙️</span>
+        <span id="nav-settings" data-lang="settings">الإعدادات</span>
+    </a>
+
+
+    <a href="#" id="logout-link" class="logout-link">
+        <span>🚪</span>
+        <span id="nav-logout" data-lang="logout">تسجيل الخروج</span>
+    </a>
+
+</nav>
+</aside>
+
+<div class="overlay" id="overlay"></div>
+<main class="main-content">
+
+    <section class="dashboard">
+
+        <h2 id="dashboard-title" data-lang="dashboard">
+    لوحة التحكم
+</h2>
+
+        <div class="local-data-notice" id="local-data-notice" hidden>
+            <span data-lang="local-data-notice">🔒 بياناتك محفوظة محليًا في هذا المتصفح فقط ولا تُرسل لأي خادم. امسح الكاش بحذر، ويُفضّل تصدير نسخة احتياطية بشكل دوري من الإعدادات.</span>
+            <button class="notice-close" type="button" aria-label="إغلاق التنبيه">✕</button>
+        </div>
+
+        <div class="cards">
+
+         <div class="card balance">
+    <div class="card-icon">💳</div>
+    <div class="card-content">
+        <h3 id="balance-title" data-lang="balance">
+    الرصيد الحالي
+</h3>
+        <h1 id="total-balance">0.00</h1>
+    </div>
+</div>
+
+<div class="card income">
+    <div class="card-icon">📈</div>
+    <div class="card-content">
+        <h3 id="income-title" data-lang="total-income">
+    إجمالي الدخل
+</h3>
+        <h1 id="total-income">0.00</h1>
+    </div>
+</div>
+
+<div class="card expense">
+    <div class="card-icon">📉</div>
+    <div class="card-content">
+        <h3 id="expense-title" data-lang="total-expense">
+    إجمالي المصروفات
+</h3>
+        <h1 id="total-expense">0.00</h1>
+    </div>
+</div>
+
+<div class="card savings">
+    <div class="card-icon">💰</div>
+    <div class="card-content">
+        <h3 id="net-balance-title" data-lang="net-balance">
+    صافي الرصيد
+</h3>
+        <h1 id="net-balance">0.00</h1>
+    </div>
+</div>
+
+<div class="card transactions">
+    <div class="card-icon">🧾</div>
+    <div class="card-content">
+        <h3 id="transactions-count-title" data-lang="transactions-count">
+    عدد المعاملات
+</h3>
+        <h1 id="total-transactions">0</h1>
+    </div>
+</div>
+
+<div class="card categories">
+    <div class="card-icon">🏷️</div>
+    <div class="card-content">
+        <h3 id="categories-count-title" data-lang="categories-count">
+    عدد التصنيفات
+</h3>
+        <h1 id="total-categories">0</h1>
+    </div>
+</div>
+        </div>
+
+    </section>
+    <section class="charts">
+
+    <div class="chart-card">
+        <h3 id="income-expense-chart-title" data-lang="income-expense-chart">
+    الدخل مقابل المصروفات
+</h3>
+        <div class="chart-skeleton" id="incomeExpenseChart-skeleton"></div>
+        <canvas id="incomeExpenseChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        
+<h3 id="category-chart-title" data-lang="category-chart">
+    المصروفات حسب التصنيف
+</h3>
+        <div class="chart-skeleton" id="categoryChart-skeleton"></div>
+        <canvas id="categoryChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        
+<h3 id="monthly-chart-title" data-lang="monthly-chart">
+    المعاملات الشهرية
+</h3>
+        <div class="chart-skeleton" id="monthlyChart-skeleton"></div>
+        <canvas id="monthlyChart"></canvas>
+    </div>
+
+</section>
+
+<section class="recent-transactions">
+
+    <div class="section-header">
+        <h2 id="recent-title" data-lang="recent-transactions">
+    آخر العمليات
+</h2>
+
+   
+<a href="transactions.html" id="view-all" data-lang="view-all">
+    عرض الكل
+</a>
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+<th id="th-date" data-lang="date">التاريخ</th>
+
+<th id="th-title" data-lang="description">الوصف</th>
+
+<th id="th-category" data-lang="category">التصنيف</th>
+
+<th id="th-amount" data-lang="amount">المبلغ</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="recent-transactions">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+</main>
+
+<button class="fab" id="add-btn" aria-label="Add Transaction/إضافة عملية" title="إضافة عملية">
+    +
+</button>
+
+  <!-- JavaScript -->
+    <script src="js/storage.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/app.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

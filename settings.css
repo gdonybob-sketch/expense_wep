@@ -1,0 +1,173 @@
+/* ======================================
+   Settings Page
+====================================== */
+
+.settings-page{
+
+    padding:30px;
+
+}
+
+.settings-page h1{
+
+    margin-bottom:25px;
+
+    color:#2e7d32;
+
+    font-size:32px;
+
+}
+
+/* ======================================
+   Main Card
+====================================== */
+
+.settings-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+/* ======================================
+   Setting Item
+====================================== */
+
+.setting-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:20px 0;
+
+}
+
+.setting-item h3{
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+    color:#333;
+
+}
+
+.setting-item p{
+
+    color:#777;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+
+/* ======================================
+   Divider
+====================================== */
+
+.settings-card hr{
+
+    border:none;
+
+    border-top:1px solid #e5e5e5;
+
+}
+
+/* ======================================
+   Buttons
+====================================== */
+
+.setting-btn,
+.settings-btn{
+
+    min-width:140px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2e7d32;
+
+    color:#fff;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.setting-btn:hover,
+.settings-btn:hover{
+
+    background:#256428;
+
+}
+
+.file-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+.danger-btn{
+
+    min-width:140px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#d32f2f;
+
+    color:#fff;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.danger-btn:hover{
+
+    background:#b71c1c;
+
+}
+
+/* ======================================
+   About App
+====================================== */
+
+.about-app{
+
+    align-items:flex-start;
+
+}
+
+.about-app p{
+
+    margin-top:8px;
+
+}

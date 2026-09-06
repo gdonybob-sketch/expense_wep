@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html id="html" lang="ar" dir="rtl">
+
+<head>
+
+    <script src="js/auth-guard.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>التقارير | إدارة المصروفات</title>
+
+    <!-- ==============================
+         CSS
+    =============================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/reports.css">
+
+</head>
+
+<body>
+
+    <!-- ======================================
+         Header
+    ======================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Expense Manager Logo"
+            >
+
+            <div class="logo-text">
+
+                <h1
+                    id="app-name"
+                    data-lang="app-name"
+                >
+                    إدارة المصروفات
+                </h1>
+
+                <span>
+                    Expense Manager
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Header Actions -->
+
+        <div class="header-actions">
+
+            <button
+                id="language-btn" aria-label="Change Language/تغيير اللغة"
+                class="header-btn"
+                title="Change Language"
+            >
+                🌐 EN
+            </button>
+
+            <button
+                id="theme-btn" aria-label="Toggle Dark Mode/تبديل الوضع الليلي"
+                class="header-btn"
+                title="Dark Mode"
+            >
+                🌙
+            </button>
+
+            <button
+                id="menu-btn" aria-label="Open Menu/فتح القائمة"
+                class="menu-btn"
+                title="Menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================
+         Sidebar
+    ======================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <h2
+                id="sidebar-title"
+                data-lang="sidebar-title"
+            >
+                📊 إدارة المصروفات
+            </h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <!-- Dashboard -->
+
+            <a href="dashboard.html">
+
+                <span>🏠</span>
+
+                <span data-lang="dashboard">
+                    لوحة التحكم
+                </span>
+
+            </a>
+
+
+            <!-- Transactions -->
+
+            <a href="transactions.html">
+
+                <span>💰</span>
+
+                <span data-lang="transactions">
+                    المعاملات
+                </span>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a
+                href="reports.html"
+                class="active"
+            >
+
+                <span>📈</span>
+
+                <span data-lang="reports">
+                    التقارير
+                </span>
+
+            </a>
+
+
+            <!-- Categories -->
+
+            <a href="categories.html">
+
+                <span>🏷️</span>
+
+                <span data-lang="categories">
+                    التصنيفات
+                </span>
+
+            </a>
+
+
+            <!-- Budget -->
+
+            <a href="budget.html">
+
+                <span>💼</span>
+
+                <span data-lang="budget">
+                    الميزانية
+                </span>
+
+            </a>
+
+
+            <!-- Settings -->
+
+            <a href="settings.html">
+
+                <span>⚙️</span>
+
+                <span data-lang="settings">
+                    الإعدادات
+                </span>
+
+            </a>
+
+        
+    <a href="#" id="logout-link" class="logout-link">
+        <span>🚪</span>
+        <span id="nav-logout" data-lang="logout">تسجيل الخروج</span>
+    </a>
+
+</nav>
+
+    </aside>
+
+
+    <!-- ======================================
+         Overlay
+    ======================================= -->
+
+    <div
+        class="overlay"
+        id="overlay"
+    ></div>
+
+
+    <!-- ======================================
+         Main Content
+    ======================================= -->
+
+    <main class="main-content">
+
+        <section class="reports">
+
+            <!-- Page Title -->
+
+            <div class="page-header">
+
+               <h2 data-lang="reports-title">
+    📈 التقارير والإحصائيات
+</h2>
+
+                <p data-lang="reports-page-description">
+                    تحليل ومتابعة وضعك المالي
+                </p>
+
+            </div>
+
+
+            <!-- ==================================
+                 Report Cards
+            =================================== -->
+
+            <div class="report-cards">
+
+                <!-- Income -->
+
+                <div class="report-card">
+
+    <h3 data-lang="total-income">
+        إجمالي الدخل
+    </h3>
+
+    <h1 id="report-income">0.00</h1>
+
+</div>
+
+<div class="report-card">
+
+    <h3 data-lang="total-expense">
+        إجمالي المصروفات
+    </h3>
+
+    <h1 id="report-expense">0.00</h1>
+
+</div>
+
+<div class="report-card">
+
+    <h3 data-lang="net-balance">
+        صافي الرصيد
+    </h3>
+
+    <h1 id="report-balance">0.00</h1>
+
+</div>
+                <!-- Balance -->
+
+                
+            </div>
+
+
+            <!-- ==================================
+                 Charts
+            =================================== -->
+
+            <section class="charts">
+
+
+                <!-- Income vs Expenses -->
+
+                <div class="chart-container">
+
+                    <h3 data-lang="income-expense-chart">
+                        الدخل مقابل المصروفات
+                    </h3>
+
+                    <div class="chart-skeleton" id="incomeExpenseChart-skeleton"></div>
+
+                    <canvas
+                        id="incomeExpenseChart"
+                    ></canvas>
+
+                </div>
+
+
+                <!-- Expenses by Category -->
+
+                <div class="chart-container">
+
+                    <h3 data-lang="category-chart">
+                        المصروفات حسب التصنيف
+                    </h3>
+
+                    <div class="chart-skeleton" id="expenseChart-skeleton"></div>
+
+                    <canvas
+                        id="expenseChart"
+                    ></canvas>
+
+                </div>
+
+
+                <!-- Monthly Transactions -->
+
+                <div class="chart-container">
+
+                    <h3 data-lang="monthly-chart">
+                        المعاملات الشهرية
+                    </h3>
+
+                    <div class="chart-skeleton" id="monthlyChart-skeleton"></div>
+
+                    <canvas
+                        id="monthlyChart"
+                    ></canvas>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         JavaScript
+    ======================================= -->
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/language.js"></script>
+    <script src="js/helpers.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/reports.js"></script>
+
+</body>
+
+</html>

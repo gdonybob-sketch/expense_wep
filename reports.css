@@ -1,0 +1,143 @@
+/* ===================================
+   Reports Page
+=================================== */
+
+.reports{
+    padding:20px;
+}
+
+/* ===================================
+   Title
+=================================== */
+
+.reports h2{
+    margin-bottom:20px;
+    font-size:28px;
+    color:#333;
+}
+
+/* ===================================
+   Report Cards
+=================================== */
+
+.report-cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+.report-card{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.report-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.report-card h3{
+
+    color:#777;
+
+    margin-bottom:10px;
+
+    font-size:18px;
+
+}
+
+.report-card h1{
+
+    color:#2e7d32;
+
+    font-size:32px;
+
+}
+
+/* ===================================
+   Charts
+=================================== */
+
+.charts{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+
+    gap:25px;
+
+}
+
+/* ===================================
+   Chart Card
+=================================== */
+
+.chart-container{
+
+    background:#fff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+}
+
+.chart-container h3{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:#444;
+
+}
+
+.chart-container canvas{
+
+    width:100% !important;
+
+    height:320px !important;
+
+}
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media(max-width:768px){
+
+.report-card h1{
+
+    font-size:26px;
+
+}
+
+.chart-container canvas{
+
+    height:250px !important;
+
+}
+
+}

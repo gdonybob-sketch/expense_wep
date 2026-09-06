@@ -1,0 +1,124 @@
+/* ======================================
+   Dark Mode
+====================================== */
+
+body.dark{
+
+    background:#121212;
+    color:#ffffff;
+
+}
+
+/* Header */
+
+body.dark .header{
+
+    background:#1f1f1f;
+    color:#fff;
+    border-bottom:1px solid #333;
+
+}
+
+/* Sidebar */
+
+body.dark .sidebar{
+
+    background:#1b1b1b;
+
+}
+
+body.dark .sidebar a{
+
+    color:#ffffff;
+
+}
+
+body.dark .sidebar a:hover,
+body.dark .sidebar a.active{
+
+    background:#2e7d32;
+
+}
+
+/* Main */
+
+body.dark .main-content{
+
+    background:#121212;
+
+}
+
+/* Cards */
+
+body.dark .card,
+body.dark .report-card,
+body.dark .budget-card,
+body.dark .settings-card,
+body.dark .transaction-form,
+body.dark .chart-container{
+
+    background:#1f1f1f;
+    color:#ffffff;
+    border:1px solid #333;
+
+}
+
+/* Tables */
+
+body.dark table{
+
+    background:#1f1f1f;
+    color:#ffffff;
+
+}
+
+body.dark th{
+
+    background:#2e7d32;
+    color:#fff;
+
+}
+
+body.dark td{
+
+    border-color:#333;
+
+}
+
+/* Forms */
+
+body.dark input,
+body.dark select,
+body.dark textarea{
+
+    background:#2b2b2b;
+    color:#ffffff;
+    border:1px solid #555;
+
+}
+
+body.dark input::placeholder{
+
+    color:#bbbbbb;
+
+}
+
+/* Buttons */
+
+body.dark button{
+
+    color:#ffffff;
+
+}
+
+/* Page Titles */
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark p,
+body.dark label{
+
+    color:#ffffff;
+
+}

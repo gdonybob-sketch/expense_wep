@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html id="html" lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 - إدارة المصروفات</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/helpers.css">
+
+    <style>
+
+        .not-found-page {
+            min-height: calc(100vh - 80px);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+        .not-found-code {
+            font-size: 96px;
+            font-weight: bold;
+
+            color: #2e7d32;
+
+            line-height: 1;
+
+            margin-bottom: 10px;
+        }
+
+        .not-found-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .not-found-text {
+            color: #666;
+            margin-bottom: 25px;
+            max-width: 420px;
+        }
+
+        .not-found-btn {
+            display: inline-block;
+
+            background: #2e7d32;
+            color: #fff;
+
+            padding: 12px 24px;
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: .3s;
+        }
+
+        .not-found-btn:hover {
+            background: #256428;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- ======================================
+         Header
+    ======================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img src="assets/images/logo.png" alt="Expense Manager Logo">
+
+            <div class="logo-text">
+
+                <h1 id="app-name" data-lang="app-name">
+                    إدارة المصروفات
+                </h1>
+
+                <span>Expense Manager</span>
+
+            </div>
+
+        </div>
+
+        <div class="header-actions">
+
+            <button id="language-btn" aria-label="Change Language/تغيير اللغة" class="header-btn">
+                🌐 EN
+            </button>
+
+            <button id="theme-btn" aria-label="Toggle Dark Mode/تبديل الوضع الليلي" class="header-btn">
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================
+         404 Content
+    ======================================= -->
+
+    <main class="not-found-page">
+
+        <div class="not-found-code">404</div>
+
+        <h2 class="not-found-title" data-lang="page-not-found-title">
+            الصفحة غير موجودة
+        </h2>
+
+        <p class="not-found-text" data-lang="page-not-found-text">
+            الصفحة التي تبحث عنها غير موجودة أو تم نقلها.
+        </p>
+
+        <a class="not-found-btn" href="dashboard.html" data-lang="back-to-dashboard">
+            العودة إلى لوحة التحكم
+        </a>
+
+    </main>
+
+
+    <!-- ======================================
+         JavaScript
+    ======================================= -->
+
+    <script src="js/storage.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/theme.js"></script>
+
+</body>
+
+</html>
